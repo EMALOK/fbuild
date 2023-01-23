@@ -1,4 +1,4 @@
-<h1> factorio mod builder </h1>
+<h1> Factorio mod builder fbuild </h1>
 
 # Table of Content
 - [Table of Content](#table-of-content)
