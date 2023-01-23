@@ -1,0 +1,36 @@
+.style_prototype_name {
+    /*
+    css style naming sequence:
+    top right bottom left
+    */
+    padding: 10 20 10 20;
+
+    /*
+    padding top/bottom, right/left;
+    padding: 20, 10, 20, 10;
+    */
+    padding: 20 10;
+
+    /*
+    set all paddings to 10 short form for padding: 10, 10, 10, 10;
+    */
+    padding: 10;
+
+    /*
+    overwrite the value set before
+    */
+    padding-left: 20;
+
+}
+
+tag_name_style {
+
+    padding: 10;
+
+}
+
+#element_unique_name {
+
+    padding: 10;
+
+}

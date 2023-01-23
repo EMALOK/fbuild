@@ -1,0 +1,14 @@
+<component name="lbutton">
+    <!-- 
+
+        acts as a normal button
+        but translate the text through the locale
+        the button style is determined by the style of the components
+
+    -->
+    <button style="__args__.style">
+        <locale>
+            __content__
+        </locale>
+    </button>
+</component>

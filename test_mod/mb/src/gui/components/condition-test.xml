@@ -1,0 +1,14 @@
+<component name="condition-test">
+    <hstack>
+        <if condition="__args__.close == &quot;true&quot;">
+            <!-- 
+                check if thee component has the tag close="true"
+            -->
+            <button>
+                <icon>
+                    icon.close
+                </icon>
+            </button>
+        </if>
+    </hstack>       
+</component>

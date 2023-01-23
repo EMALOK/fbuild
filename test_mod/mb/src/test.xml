@@ -1,0 +1,28 @@
+<gui>
+
+    <head>
+        <!--
+            internal names
+            component used
+            script event endpoint
+        -->
+        <include type="component">Component/localized-button.xml</include>
+        <include type="style">Style/common.css</include>
+    </head>
+    <body>
+        <vstack>
+            <hstack>
+                <label>
+                    <locale>
+                        mod.describe
+                    </locale>
+                </label>
+                <button>
+                    <locale>
+                        mod.confirm
+                    </locale>
+                </button>
+            </hstack>
+        </vstack>
+    </body>
+</gui>
