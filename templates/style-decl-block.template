@@ -1,0 +1,4 @@
+
+styles[--STYLE-NAME--] = {
+--STYLE-BODY--
+}

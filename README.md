@@ -25,15 +25,30 @@
     - [example](#example-4)
   - [label](#label)
     - [description](#description-5)
-    - [args](#args)
     - [example](#example-5)
   - [button](#button)
+    - [description](#description-6)
+    - [arguments](#arguments-3)
+    - [example](#example-6)
   - [switch](#switch)
+    - [description](#description-7)
+    - [arguments](#arguments-4)
+    - [example](#example-7)
+  - [left](#left)
+    - [description](#description-8)
+  - [right](#right)
   - [slider](#slider)
+    - [description](#description-9)
+    - [arguments](#arguments-5)
+    - [example](#example-8)
   - [textfield](#textfield)
   - [text-box](#text-box)
   - [locale](#locale)
   - [sprite](#sprite)
+  - [vstack](#vstack)
+  - [hstack](#hstack)
+  - [vframe](#vframe)
+  - [hframe](#hframe)
 
 ---
 
@@ -44,7 +59,7 @@ all the standard tags usable with context aware example
 
 ### description
 
-the root element of all files in the folder `{mod}/mb/src/gui/roots`
+the root element of all files in the folder `{mod}/fbuild/src/gui`
 
 ### arguments
 
@@ -148,13 +163,13 @@ the content of this tag is where are the file/s to include
 
 ### description
 
+A piece of text
+
 can be used in 2 ways:
 
 - use directly with text
 - use with a `<locale>` tag to use 
   [LocalizedString](https://lua-api.factorio.com/latest/Concepts.html#LocalisedString)
-
-### args
 
 ### example
 
@@ -163,7 +178,7 @@ can be used in 2 ways:
   this will show
   'normal text here'
   in all languages
-  -->
+-->
 <gui>
 
   <body>
@@ -174,8 +189,7 @@ can be used in 2 ways:
 </gui>
 
 <!--
-  localized text
-  will show
+  localized text will show
   'Iron plate' in English
   or
   'Eisenplatte' in German
@@ -192,11 +206,163 @@ can be used in 2 ways:
 </gui>
 ```
 
+---
+
 ## button
+
+### description
+
+A clickable Element
+
+can be use in 3 ways:
+
+- use directly with text
+- use with the `<locale>` tag
+- use with the `<sprite>` tag
+
+### arguments
+
+`mouse_button_filter` string?: Which mouse buttons the button responds to. Defaults to `"left-and-right"` see [MouseButtonFlags](https://lua-api.factorio.com/latest/Concepts.html#MouseButtonFlags)
+
+`onClick` string: when the button is clicked it will call the function here specified
+
+### example
+
+```xml
+<!--
+  the button tag it self will show
+  'Hello Button'
+  in all languages
+
+  when clicked will execute
+
+  say_it_back()
+
+-->
+<gui>
+
+  <body>
+    <button onClick="say_it_back">
+      Hello Button
+    </button>
+  </body>
+</gui>
+
+<!--
+  localized text will show
+  'Iron plate' in English
+  or
+  'Eisenplatte' in German
+-->
+<gui>
+
+  <body>
+    <button>
+      <locale>
+        item-name.iron-plate
+      </locale>
+    </button>
+  </body>
+</gui>
+
+<gui>
+
+  <body>
+    <button>
+      <sprite>
+        item/iron-plate
+      </sprite>
+    </button>
+  </body>
+</gui>
+```
+
+---
 
 ## switch
 
+### description
+
+used with the tags `<left>` and `<right>` describes a switch 
+
+### arguments
+
+`switch_state` string?: Possible values are `"left"`, `"right"`, or `"none"`.
+If set to `"none"`, allow_none_state must be `true`. Defaults to `"left"`
+
+`allow_none_state` boolean?: Whether the switch can be set to a middle state.
+Defaults to `false`
+
+### example
+
+```xml
+<gui>
+
+  <body>
+    <switch allow_none_state="true" initial_value="none">
+
+      <left>
+
+        left label
+        <tooltip>
+          tooltip text
+        </tooltip>
+
+      </left>
+
+      <right>
+
+        <locale>
+          locale.text
+        </locale>
+
+        <tooltip>
+          <locale>
+            tooltip.locale.text
+          </locale>
+        </tooltip>
+
+      </right>
+
+    </switch>
+  </body>
+</gui>
+```
+
+## left
+
+### description
+
+in the context of a switch describe the left label and can be used in 3 ways:
+
+1. with direct text that will be used in thee label
+2. with a `<locale>` that will translate the label in the current language
+3. with a `<tooltip>` tag that will describe the hover tooltip
+
+method `3` can be used together with method `1` or `2`
+
+## right
+
+same as [left](#left) but for the right side
+
 ## slider
+
+### description
+
+### arguments
+
+`min_value` float?: The minimum value for the slider. Defaults to 0
+
+`max_value` float?: The maximum value for the slider. Defaults to 30
+
+`initial_value` float?: The initial value for the slider. Defaults to minimum_value
+
+`step` float?: The minimum value the slider can move. Defaults to 1
+
+### example
+
+```xml
+```
 
 ## textfield
 
@@ -205,3 +371,11 @@ can be used in 2 ways:
 ## locale
 
 ## sprite
+
+## vstack
+
+## hstack
+
+## vframe
+
+## hframe
